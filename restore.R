@@ -1,5 +1,4 @@
-
-        sv_restore_x = system('dx ls -l .Backups',intern = T)
+sv_restore_x = system('dx ls -l .Backups',intern = T)
         (sv_restore_x <- sv_restore_x[grepl('tar.gz \\(file-',sv_restore_x,T)])
         sv_restore_timep = '[0-9]{4}-[0-9]{1,2}-[0-9]{1,2} {0,}[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}'
         sv_restore_wh = grep(sv_restore_timep,sv_restore_x)
@@ -14,11 +13,10 @@
         (sv_restore_x3 = gsub('.*\\(','',sv_restore_x1[sv_restore_wh]))
         (sv_restore_x3=gsub('\\)','',sv_restore_x3))
         system(paste0("dx-restore-folder ",sv_restore_x3))
-        suppressWarnings(rm(sv_store_timep,envir = .GlobalEnv))
-
-        suppressWarnings(rm(sv_store_wh,envir = .GlobalEnv))
-        suppressWarnings(rm(sv_store_x,envir = .GlobalEnv))
-        suppressWarnings(rm(sv_store_x1,envir = .GlobalEnv))
-        suppressWarnings(rm(sv_store_x2,envir = .GlobalEnv))
-        suppressWarnings(rm(sv_store_x3,envir = .GlobalEnv))
-        suppressWarnings(rm(sv_store_x4,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_timep,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_wh,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_x,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_x1,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_x2,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_x3,envir = .GlobalEnv))
+        suppressWarnings(rm(sv_restore_x4,envir = .GlobalEnv))
