@@ -13,8 +13,8 @@
 (.sv_restore_wh = which.max(as.POSIXct(.sv_restore_x4)))
 (.sv_restore_x3 = gsub('.*\\(','',.sv_restore_x1[.sv_restore_wh]))
 (.sv_restore_x3=gsub('\\)','',.sv_restore_x3))
-x=system(paste0("dx-restore-folder ",.sv_restore_x3,' 2>/dev/null'),T)
-if (gsub(' to \\.','',gsub('Restoring ','',x)) == .sv_restore_x3){
+.x=system(paste0("dx-restore-folder ",.sv_restore_x3,' 2>/dev/null'),T)
+if (gsub(' to \\.','',gsub('Restoring ','',.x)) == .sv_restore_x3){
   message('OK')
 }else{
   message('ERROR')
