@@ -1,6 +1,7 @@
 .sv_restore_x = system('dx ls -l .Backups',intern = T)
 (.sv_restore_x <- .sv_restore_x[grepl('tar.gz \\(file-',.sv_restore_x,T)])
 (.sv_restore_x <- .sv_restore_x[grepl('closed ',.sv_restore_x)])
+if (length(.sv_restore_x)==0) stop('没有可以恢复的数据')
 .sv_restore_timep = '[0-9]{4}-[0-9]{1,2}-[0-9]{1,2} {0,}[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}'
 .sv_restore_wh = grep(.sv_restore_timep,.sv_restore_x)
 (.sv_restore_x1 = .sv_restore_x[.sv_restore_wh])
